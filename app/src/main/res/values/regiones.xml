@@ -1,0 +1,20 @@
+<resources>
+    <string-array name="regiones">
+        <item>Arica y Parinacota</item>
+        <item>Tarapacá</item>
+        <item>Antofagasta</item>
+        <item>Atacama</item>
+        <item>Coquimbo</item>
+        <item>Valparaíso</item>
+        <item>Metropolitana</item>
+        <item>O´Higgins</item>
+        <item>Maule</item>
+        <item>Ñuble</item>
+        <item>BíoBío</item>
+        <item>Araucanía</item>
+        <item>Los Ríos</item>
+        <item>Los Lagos</item>
+        <item>Aysén</item>
+        <item>Magallanes</item>
+    </string-array>
+</resources>

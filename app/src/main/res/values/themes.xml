@@ -1,0 +1,29 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.PeguiFacil2" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/orange_one</item>
+        <item name="colorPrimaryVariant">@color/orange_one</item>
+        <item name="colorOnPrimary">@color/orange_one</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/orange_two</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="Theme.PeguiFacil2.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Theme.PeguiFacil2.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.PeguiFacil2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Loading" parent="ThemeOverlay.AppCompat.Light">
+        <item name="color">#ffffff</item>
+    </style>
+</resources>

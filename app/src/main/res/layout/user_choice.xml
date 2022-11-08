@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient"
+    >
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/creamcake"
+        android:letterSpacing="0.01"
+        android:text="@string/user_choice"
+        android:textColor="@color/white"
+        android:textSize="48dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.087" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="305dp"
+        android:layout_height="131dp"
+        android:layout_marginTop="92dp"
+        android:backgroundTint="@color/white"
+        android:drawableLeft="@drawable/person"
+        android:fontFamily="@font/robotobolditalic"
+        android:text="@string/person"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34"
+        app:layout_constraintVertical_bias="0.0"
+        app:strokeColor="@color/orange_two"
+        app:strokeWidth="2dp"
+        android:onClick="personRegister"
+        />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="305dp"
+        android:layout_height="131dp"
+        android:backgroundTint="@color/white"
+        android:drawableRight="@drawable/enterprise"
+        android:fontFamily="@font/robotobolditalic"
+        android:text="@string/enterprise"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button8"
+        app:layout_constraintVertical_bias="0.103"
+        app:strokeColor="@color/orange_two"
+        app:strokeWidth="2dp"
+        android:onClick="enterpriseRegister"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

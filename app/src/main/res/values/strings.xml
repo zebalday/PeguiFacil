@@ -1,0 +1,47 @@
+<resources>
+    <!-- APP NECESSARY STRINGS -->
+    <string name="app_name">PeguiFácil</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="username">Nombre de usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="register">Regístrate</string>
+    <string name="edit_profile">Editar perfil</string>
+    <string name="user_choice">Elige el tipo de usuario</string>
+    <string name="register_user">Registro de usuario</string>
+    <string name="register_ent">Registro de empresa</string>
+    <string name="person">Persona</string>
+    <string name="enterprise">Empresa</string>
+    <string name="name">Nombres</string>
+    <string name="l_name">Apellidos</string>
+    <string name="mail">Correo</string>
+    <string name="rut">RUT</string>
+    <string name="phone">Teléfono</string>
+    <string name="description">Descripción</string>
+    <string name="region">Región</string>
+    <string name="address">Dirección</string>
+    <string name="rut_e">RUT empresa</string>
+    <string name="r_name">Nombre rep.</string>
+    <string name="e_name">Nombre emp.</string>
+    <string name="no_acc">¿No tienes cuenta?</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_menu_lateral">MenuLateral</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- NAVIGATION DRAWER MENU STRINGS -->
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_profile">Mi perfil</string>
+    <string name="menu_logout">Cerrar sesión</string>
+    <string name="menu_search">Búsqueda</string>
+    <string name="menu_applications">Postulaciones</string>
+    <string name="menu_map">Mapa de trabajos</string>
+
+</resources>

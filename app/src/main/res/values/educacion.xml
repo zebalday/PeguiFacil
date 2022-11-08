@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="nivel_educativo">
+        <item>Cursando media</item>
+        <item>Media completa</item>
+        <item>Cursando superior</item>
+        <item>Superior completa</item>
+    </string-array>
+</resources>
