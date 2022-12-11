@@ -29,6 +29,7 @@ public class PersonaEditProfile extends AppCompatActivity implements AdapterView
     private EditText nombres, apellidos, correo, pass, telefono;
     private TextView fec_nac;
     private Spinner educacion;
+    private ArrayAdapter adapter;
     private Bundle user_info = new Bundle();
 
 
@@ -52,7 +53,7 @@ public class PersonaEditProfile extends AppCompatActivity implements AdapterView
         educacion = findViewById(R.id.SP_educacion);
 
         // SET SPINNER ADAPTER
-        ArrayAdapter adapter = ArrayAdapter.createFromResource(this, R.array.nivel_educativo, android.R.layout.simple_spinner_item);
+        adapter = ArrayAdapter.createFromResource(this, R.array.nivel_educativo, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         educacion.setAdapter(adapter);
 
@@ -83,25 +84,15 @@ public class PersonaEditProfile extends AppCompatActivity implements AdapterView
         telefono.setText(person.getString(4));
         fec_nac.setText(person.getString(5));
 
-        // EDUCATIONAL LEVEL SWITCH SELECTION
-        switch (person.getString(6)) {
-            case "Cursando media":
-                educacion.setSelection(0);
-                break;
-            case "Media completa":
-                educacion.setSelection(1);
-                break;
-            case "Cursando superior":
-                educacion.setSelection(2);
-                break;
-            case "Superior completa":
-                educacion.setSelection(3);
-                break;
-        }
+        String eduSelection = person.getString(6);
+        int spinnerPosition = adapter.getPosition(eduSelection);
+        educacion.setSelection(spinnerPosition);
 
         person.close();
     }
 
+
+    // SAVE CHANGES
     public void saveChanges(View view) {
         // OBTAIN WRITABLE DATABASE
         helper = new DBHelper(this);

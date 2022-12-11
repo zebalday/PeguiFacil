@@ -13,7 +13,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
-public class EmpleosAdapter extends RecyclerView.Adapter<EmpleosAdapter.ViewHolder> {
+public class EmpleosAdapterApplications extends RecyclerView.Adapter<EmpleosAdapter.ViewHolder> {
 
     // DATABASE
     private SQLiteDatabase DB;
@@ -21,14 +21,13 @@ public class EmpleosAdapter extends RecyclerView.Adapter<EmpleosAdapter.ViewHold
     private String userMail;
     private int userType;
 
-
     // NECESSARY ATTRIBUTES
     private ArrayList<Empleo> empleosList; // DATA TO BE DISPLAYED
     private LayoutInflater inflater;
     private Context context;
 
     // CONSTRUCTOR
-    public EmpleosAdapter(ArrayList<Empleo> empleosList, Context context){
+    public EmpleosAdapterApplications(ArrayList<Empleo> empleosList, Context context){
         this.empleosList = empleosList;
         this.context = context;
     }
@@ -39,8 +38,8 @@ public class EmpleosAdapter extends RecyclerView.Adapter<EmpleosAdapter.ViewHold
 
     // FILTERING OUR RECYLERVIEW ITEMS
     public void filterList(ArrayList<Empleo> filteredList){
-            empleosList = filteredList;
-            notifyDataSetChanged();
+        empleosList = filteredList;
+        notifyDataSetChanged();
     }
 
     // INFLATING LAYOUT
@@ -91,17 +90,17 @@ public class EmpleosAdapter extends RecyclerView.Adapter<EmpleosAdapter.ViewHold
             empresa.setText(empleo.getEmpresa());
             jornada.setText(empleo.getJornada());
             salario.setText(String.valueOf(empleo.getSueldo()));
-
             if (empleo.getCreated_at() != null){
                 created_at.setText("Publicado el: "+empleo.getCreated_at());
             }
 
             jobCardView.setOnClickListener(view -> {
-                    jobInfo = new Intent(view.getContext(), EmpleoInfo.class);
-                    jobInfo.putExtra("user_mail", this.userMail);
-                    jobInfo.putExtra("user_type", this.userType);
-                    jobInfo.putExtra("job_id", this.jobID);
-                    itemView.getContext().startActivity(jobInfo);
+                jobInfo = new Intent(view.getContext(), EmpleoInfo.class);
+                jobInfo.putExtra("user_mail", this.userMail);
+                jobInfo.putExtra("user_type", this.userType);
+                jobInfo.putExtra("job_id", this.jobID);
+                jobInfo.putExtra("origin", "Postulaciones");
+                itemView.getContext().startActivity(jobInfo);
             });
         }
 

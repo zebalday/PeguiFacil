@@ -4,9 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/drawable/border_radius.xml" value="0.2705" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/drawable/search_bar.xml" value="0.194" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/drawable/stroke.xml" value="0.2705" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/drawable/stroke_2.xml" value="0.327" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_agregar_empleo.xml" value="0.2" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_agregar_ubicacion_empresa.xml" value="0.22" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_applications_enterprise.xml" value="0.25" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_editar_empleo.xml" value="0.23716216216216215" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_empleo_info.xml" value="0.25" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_empresa_edit_profile.xml" value="0.23716216216216215" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_login.xml" value="0.23716216216216215" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_menu_lateral.xml" value="0.365625" />
@@ -19,26 +24,32 @@
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/activity_splash_screen.xml" value="0.1" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/app_bar_menu_lateral.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/content_menu_lateral.xml" value="0.23716216216216215" />
-        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/empleo_viewholder.xml" value="0.264" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/empleo_info_dialog.xml" value="0.365625" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/empleo_viewholder.xml" value="0.23716216216216215" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/empleo_viewholder_applications.xml" value="0.22" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/empleoviewholder_enterprise.xml" value="0.3" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment__busqueda.xml" value="0.35104166666666664" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment__profile.xml" value="0.365625" />
-        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_applications.xml" value="0.365625" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_applications.xml" value="0.22" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_applications_enterprise.xml" value="0.22" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_date_picker.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_gallery.xml" value="0.27395833333333336" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_home.xml" value="0.365625" />
-        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_map.xml" value="0.16418918918918918" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_map.xml" value="0.2" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_mapa.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_postulaciones.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_profile.xml" value="0.23716216216216215" />
-        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_profile_enterprise.xml" value="0.152" />
-        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_search.xml" value="0.365625" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_profile_enterprise.xml" value="0.23716216216216215" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/fragment_search.xml" value="0.23716216216216215" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/nav_header_menu_lateral.xml" value="0.23716216216216215" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/persona_viewholder.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/layout/user_choice.xml" value="0.23716216216216215" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/menu/activity_main_drawer.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/menu/activity_menu_lateral_drawer.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/menu/busqueda.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/menu/menu_lateral.xml" value="0.365625" />
         <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/menu/menus.xml" value="0.365625" />
+        <entry key="..\:/UST!/4 Semestre/Android/Proyecto Semestral/PeguiFacil2/PeguiFacil2/app/src/main/res/menu/search_menu.xml" value="0.3645833333333333" />
       </map>
     </option>
   </component>

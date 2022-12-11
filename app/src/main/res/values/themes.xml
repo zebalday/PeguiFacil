@@ -23,7 +23,4 @@
 
     <style name="Theme.PeguiFacil2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Loading" parent="ThemeOverlay.AppCompat.Light">
-        <item name="color">#ffffff</item>
-    </style>
 </resources>

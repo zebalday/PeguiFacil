@@ -77,8 +77,8 @@ public class DBHelper extends SQLiteOpenHelper {
                 "\t\"telefono\"\tTEXT(12) NOT NULL,\n" +
                 "\t\"region\"\tTEXT(50) NOT NULL,\n" +
                 "\t\"direccion\"\tTEXT(100) NOT NULL,\n" +
-                "\t\"altitud\"\tREAL,\n" +
                 "\t\"latitud\"\tREAL,\n" +
+                "\t\"longitud\"\tREAL,\n" +
                 "\t\"tipo_usuario\"\tINTEGER NOT NULL,\n" +
                 "\tPRIMARY KEY(\"id\")\n" +
                 ");");
@@ -94,7 +94,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "\t\"tipo_jornada\"\tINTEGER NOT NULL,\n" +
                 "\t\"tipo_paga\"\tINTEGER NOT NULL,\n" +
                 "\t\"tipo_educacion\"\tINTEGER NOT NULL,\n" +
-                "\t\"visible\" BOOLEAN NOT NULL,\n" +
+                "\t\"visible\"\tINTEGER NOT NULL DEFAULT(1),\n" +
                 "\tFOREIGN KEY(\"tipo_jornada\") REFERENCES \"tipo_jornada\"(\"id\") ON DELETE CASCADE,\n" +
                 "\tFOREIGN KEY(\"empresa\") REFERENCES \"empresa\"(\"id\") ON DELETE CASCADE,\n" +
                 "\tFOREIGN KEY(\"tipo_paga\") REFERENCES \"tipo_paga\"(\"id\") ON DELETE CASCADE,\n" +

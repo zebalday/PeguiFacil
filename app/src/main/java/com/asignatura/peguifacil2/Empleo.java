@@ -9,14 +9,14 @@ public class Empleo {
     private String titulo;
     private String descripcion;
     private int sueldo;
-    private Date created_at;
+    private String created_at;
     private String empresa;
     private String jornada;
     private String paga;
     private String educacion;
 
     // CONSTRUCTORS
-    public Empleo(String titulo, String descripcion, int sueldo, Date created_at, String empresa, String jornada, String paga, String educacion) {
+    public Empleo(String titulo, String descripcion, int sueldo, String created_at, String empresa, String jornada, String paga, String educacion) {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.sueldo = sueldo;
@@ -37,21 +37,23 @@ public class Empleo {
     public Empleo() {}
 
     // SETTERS
+
+    public void setId(int id) {this.id = id;}
     public void setTitulo(String titulo) {this.titulo = titulo;}
     public void setDescripcion(String descripcion) {this.descripcion = descripcion;}
     public void setSueldo(int sueldo) {this.sueldo = sueldo;}
-    public void setCreated_at(Date created_at) {this.created_at = created_at;}
-    public void setEmpresa_id(String empresa) {this.empresa = empresa;}
-    public void setJornada_id(String jornada) {this.jornada = jornada;}
-    public void setPaga_id(String paga) {this.paga = paga;}
-    public void setCategoria_id(String educacion) {this.educacion = educacion;}
+    public void setCreated_at(String created_at) {this.created_at = created_at;}
+    public void setEmpresa(String empresa) {this.empresa = empresa;}
+    public void setJornada(String jornada) {this.jornada = jornada;}
+    public void setPaga(String paga) {this.paga = paga;}
+    public void setCategoria(String educacion) {this.educacion = educacion;}
 
     // GETTERS
     public int getId() {return id;}
     public String getTitulo() {return titulo;}
     public String getDescripcion() {return descripcion;}
     public int getSueldo() {return sueldo;}
-    public Date getCreated_at() {return created_at;}
+    public String getCreated_at() {return created_at;}
     public String getEmpresa() {return empresa;}
     public String getJornada() {return jornada;}
     public String getPaga() {return paga;}

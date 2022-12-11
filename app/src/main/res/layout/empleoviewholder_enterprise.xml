@@ -2,7 +2,7 @@
 <com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/job_cardview"
+    android:id="@+id/job_cardview_enterprise"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
@@ -73,10 +73,44 @@
                     android:layout_marginTop="10dp"
                     android:gravity="center"
                     android:textSize="12sp"
-                    android:textStyle="italic" />
+                    android:textStyle="italic"
+                    android:text="Días de vigencia"
+                    />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+
+                    <Button
+                        android:id="@+id/btn_edit_job"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="Editar"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#FF9800"
+                        />
+
+                    <Button
+                        android:id="@+id/btn_delete_job"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:text="Eliminar"
+                        android:textColor="@color/white"
+                        android:textStyle="bold"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#F64343"
+                        />
+                </LinearLayout>
 
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
+
+
+
 </com.google.android.material.card.MaterialCardView>

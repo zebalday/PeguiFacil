@@ -30,8 +30,7 @@ public class AgregarEmpleo extends AppCompatActivity {
     private EditText titulo, descripcion, sueldo;
     private Spinner educacion, jornada, paga;
     private TextView vigencia;
-    private Bundle user_info = new Bundle();
-
+    private Bundle user_info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,9 +49,9 @@ public class AgregarEmpleo extends AppCompatActivity {
 
         // FILLING SPINNERS FROM DB
         fillSpinners();
-
     }
 
+    // ADD NEW REGISTER
     public void addJob(View view){
         user_info = getIntent().getExtras();
         String mail = user_info.getString("user_mail");
@@ -83,7 +82,6 @@ public class AgregarEmpleo extends AppCompatActivity {
         registro.put("tipo_jornada", j_id);
         registro.put("tipo_paga", p_id);
         registro.put("tipo_educacion", e_id);
-        registro.put("visible", true);
 
         if (job_title.isEmpty() || job_desc.isEmpty() || salary.isEmpty() || final_date.isEmpty()){
             Toast.makeText(this, "Rellene todos los campos.", Toast.LENGTH_SHORT).show();
@@ -105,7 +103,7 @@ public class AgregarEmpleo extends AppCompatActivity {
         DB.close();
     }
 
-
+    // FILL SPINNERS OPTIONS FROM BD
     public void fillSpinners() {
         // OBTAIN WRITABLE DATABASE
         helper = new DBHelper(this);
@@ -116,7 +114,7 @@ public class AgregarEmpleo extends AppCompatActivity {
         Cursor jornada_cursor = DB.rawQuery("SELECT tipo FROM tipo_jornada", new String[]{});
         Cursor paga_cursor = DB.rawQuery("SELECT tipo FROM tipo_paga", new String[]{});
 
-        // FILL EDUTACION LEVEL SPINNER
+        // FILL EDUCATION LEVEL SPINNER
         List<String> eduArrAd = new ArrayList<String>();
         while (educacion_cursor.moveToNext()) {
             eduArrAd.add(educacion_cursor.getString(0));
@@ -148,11 +146,7 @@ public class AgregarEmpleo extends AppCompatActivity {
         paga_cursor.close();
     }
 
-
-    /*
-        Show date-picker dialog method, associated to image-button onclick event.
-        Implements it´s own listener on it´s class: DatePickerFragment
-    */
+    // PICK DATE
     public void showDatePickerDialog(View v) {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -169,14 +163,12 @@ public class AgregarEmpleo extends AppCompatActivity {
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-
-    /* Date formatter method */
+    // DATE FORMATTER
     private String twoDigits(int n) {
         return (n <= 9) ? ("0" + n) : String.valueOf(n);
     }
 
-
-    /* Legal age verifier */
+    // LEGAL AGE VERIFIERS
     public long getMonths(int year, int month, int day) {
         // MONTHS START AT ZERO
         month++;
@@ -185,7 +177,6 @@ public class AgregarEmpleo extends AppCompatActivity {
                 LocalDate.of(year, month, day)
         ).getMonths();
     }
-
     public long getDays(int year, int month, int day) {
         // MONTHS START AT ZERO
         month++;

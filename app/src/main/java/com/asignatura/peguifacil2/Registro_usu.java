@@ -35,7 +35,6 @@ public class Registro_usu extends AppCompatActivity implements AdapterView.OnIte
     private TextView fec_nac;
     private EditText rut, nombres, apellidos, correo, pass, telefono;
     private Spinner educacion;
-    private Button register;
     private Intent login;
 
 
@@ -45,7 +44,6 @@ public class Registro_usu extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_registro);
         getSupportActionBar().hide();
 
-
         // INITIALIZE REGISTER FORM COMPONENTS
         rut = findViewById(R.id.txtRut);
         nombres = findViewById(R.id.txtNombres);
@@ -54,9 +52,6 @@ public class Registro_usu extends AppCompatActivity implements AdapterView.OnIte
         pass = findViewById(R.id.txtPassword);
         telefono = findViewById(R.id.txtTelefono);
         fec_nac = findViewById(R.id.txtFecha);
-
-        // INITIALIZE REGISTER BUTTON
-        register = findViewById(R.id.btn_register);
 
         // INITIALIZE DECLARED SPINNER
         educacion = findViewById(R.id.SP_educacion);
@@ -68,10 +63,9 @@ public class Registro_usu extends AppCompatActivity implements AdapterView.OnIte
 
         // SPECIFY INTERFACE CONNECTION
         educacion.setOnItemSelectedListener(this);
-
     }
 
-
+    // ADD NEW REGISTER
     public void register(View view){
         // OBTAIN WRITABLE DATABASE
         helper = new DBHelper(this);
@@ -160,10 +154,7 @@ public class Registro_usu extends AppCompatActivity implements AdapterView.OnIte
         }
     }
 
-    /*
-        Show date-picker dialog method, associated to image-button onclick event.
-        Implements it´s own listener on it´s class: DatePickerFragment
-    */
+    // DATE PICKER
     public void showDatePickerDialog(View v) {
         DatePickerFragment newFragment = DatePickerFragment.newInstance(new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -182,14 +173,12 @@ public class Registro_usu extends AppCompatActivity implements AdapterView.OnIte
         newFragment.show(getSupportFragmentManager(), "datePicker");
     }
 
-
-    /* Date formatter method */
+    // DATE FORMATTER
     private String twoDigits(int n) {
         return (n<=9) ? ("0"+n) : String.valueOf(n);
     }
 
-
-    /* Legal age verifier */
+    // LEGAL AGE VERIFIER
     public long getAge(int year, int month, int day) {
         // MONTHS START AT ZERO
         month++;
@@ -199,17 +188,11 @@ public class Registro_usu extends AppCompatActivity implements AdapterView.OnIte
         ).getYears();
     }
 
-
     // SPINNER INTERFACE METHODS
     @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-    }
-
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {}
     @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
+    public void onNothingSelected(AdapterView<?> adapterView) {}
 }
 
 

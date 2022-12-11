@@ -11,12 +11,13 @@ public class Persona {
     private String correo;
     private String pass;
     private String telefono;
-    private Date fechaNacimiento;
+    private String tipo_educacion;
+    private String fechaNacimiento;
     private String descripcion;
-    private int tipo_usuario;
+    private String tipo_usuario;
 
     // CONSTRUCTORS
-    public Persona(String rut, String nombres, String apellidos, String correo, String pass, String telefono, Date fechaNacimiento, String descripcion, int tipo_usuario) {
+    public Persona(String rut, String nombres, String apellidos, String correo, String pass, String telefono, String fechaNacimiento, String descripcion, String tipo_usuario) {
         this.rut = rut;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -37,9 +38,10 @@ public class Persona {
     public void setCorreo(String c){this.correo = c;}
     public void setPass(String p){this.pass = p;}
     public void setTelefono(String t){this.telefono = t;}
-    public void setFechaNacimiento(Date f){this.fechaNacimiento = f;}
+    public void setFechaNacimiento(String f){this.fechaNacimiento = f;}
     public void setDescripcion(String d){this.descripcion = d;}
-    public void setTipo_usuario(int t){this.tipo_usuario = t;}
+    public void setTipo_usuario(String t){this.tipo_usuario = t;}
+    public void setTipo_educacion(String t){this.tipo_educacion = t;}
 
     // GETTERS
     public int getId() {return id;}
@@ -49,7 +51,9 @@ public class Persona {
     public String getCorreo() {return correo;}
     public String getPass() {return pass;}
     public String getTelefono() {return telefono;}
-    public Date getFechaNacimiento() {return fechaNacimiento;}
+    public String getFechaNacimiento() {return fechaNacimiento;}
     public String getDescripcion() {return descripcion;}
-    public int getTipo_usuario() {return tipo_usuario;}
+    public String getTipo_usuario() {return tipo_usuario;}
+    public String getTipo_educacion(){return tipo_educacion;}
+
 }

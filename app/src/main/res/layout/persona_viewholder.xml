@@ -34,48 +34,49 @@
                 android:padding="10dp">
 
                 <TextView
-                    android:id="@+id/txtJobTitle"
+                    android:id="@+id/txtNombrePersona"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Título del trabajo"
+                    android:hint="Nombre Persona"
                     android:textColor="@color/black"
                     android:textSize="24dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtEnterpriseName"
+                    android:id="@+id/txtCorreo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Nombre de la empresa"
-                    android:textColor="@color/black"
-                    android:textSize="20dp"
+                    android:hint="Correo electrónico"
+                    android:textColor="#3F51B5"
+                    android:textSize="18dp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtJobSalary"
+                    android:id="@+id/txtTelefono"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Sueldo en pesos"
+                    android:hint="Teléfono"
+                    android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtJobHours"
+                    android:id="@+id/txtEdad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Tipo de jornada"
-                    android:textSize="18sp" />
+                    android:hint="Edad"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtCreatedAt"
+                    android:id="@+id/txtEducacion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:textSize="12sp"
-                    android:textStyle="italic" />
-
-
+                    android:hint="Educación"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>

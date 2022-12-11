@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -43,10 +44,9 @@ public class MenuLateral extends AppCompatActivity {
         binding = ActivityMenuLateralBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-
         // UI - Toolbar
         toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar); // Setup toolbar.
+        setSupportActionBar(toolbar);
 
 
         // UI - Navigation view
@@ -73,16 +73,22 @@ public class MenuLateral extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
         setTitle("PeguiFácil");
 
+
+        // HIDE APPLICATIONS IF USER IS ENTERPRISE
+        if (getIntent().getExtras().getInt("user_type") == 2){
+            Menu menu = navigationView.getMenu();
+            menu.findItem(R.id.nav_applications).setVisible(false);
+        }
+
         // For logout.
          logoutBuilder = new AlertDialog.Builder(this);
     }
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_lateral, menu);
+        // getMenuInflater().inflate(R.menu.search_menu, menu);
+
         return true;
     }
 
@@ -93,12 +99,7 @@ public class MenuLateral extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-
-
-    /*
-    * THIS METHOD SETS THE USER DATA TO THE NAVIGATION DRAWER HEADER
-    * It is called when after the NavigationView is initialized.
-    * */
+    // SETS THE USER INFORMATION INTO THE NAVIGATION DRAWER HEADER
     public void updateNavHeader(NavigationView nav){
         // OBTAIN WRITABLE DATABASE
         helper = new DBHelper(this);
@@ -142,14 +143,13 @@ public class MenuLateral extends AppCompatActivity {
         }
     }
 
-    /*
-    * Returns user Bundle to fill the profile user info from the Profile Fragment.
-    * */
+    // RETURNS USER BUNDLE
     public Bundle getUserData(){
         user_bundle = getIntent().getExtras();
         return user_bundle;
     }
 
+    // QUIT SESSION
     public void logout(MenuItem item){
 
         // CONFIRM
@@ -175,7 +175,6 @@ public class MenuLateral extends AppCompatActivity {
 
         AlertDialog alert = logoutBuilder.create();
         alert.show();
-
     }
 
 }

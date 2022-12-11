@@ -1,64 +1,176 @@
 package com.asignatura.peguifacil2;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.speech.RecognizerIntent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Search#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.ArrayList;
+
+
 public class Search extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    // DATABASE
+    private SQLiteDatabase DB;
+    private DBHelper helper;
+    private String userMail;
+    private int userType;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    // ADAPTER
+    private EmpleosAdapter adapter;
+    private ArrayList<Empleo> empleosList;
 
-    public Search() {
-        // Required empty public constructor
-    }
+    // UI
+    private RecyclerView empleosRecyclerView;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment Search.
-     */
-    // TODO: Rename and change types and number of parameters
+
+    public Search() {}
     public static Search newInstance(String param1, String param2) {
         Search fragment = new Search();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        setHasOptionsMenu(true);
+    }
+
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        // VIEW
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
+
+        userMail = getActivity().getIntent().getExtras().getString("user_mail");
+        userType = getActivity().getIntent().getExtras().getInt("user_type");
+
+        // INIT RECYCLERVIEW
+        buildRecyclerView(view);
+        return view;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_search, container, false);
+    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
+
+        menuInflater.inflate(R.menu.search_menu, menu);
+        super.onCreateOptionsMenu(menu, menuInflater);
+
+        // MenuInflater inflater = requireActivity().getMenuInflater();
+
+        MenuItem searchItem = menu.findItem(R.id.searchBar);
+        SearchView searchView = (SearchView) searchItem.getActionView();
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filter(newText);
+                return false;
+            }
+        });
+    }
+
+
+    private void filter(String text) {
+
+        // NEW JOBS ARRAYLIST --> AFTER FILTER
+        ArrayList<Empleo> filteredlist = new ArrayList<Empleo>();
+
+        // COMPARE INITIAL ELEMENTS WITH THE USER QUERY
+        for (Empleo emepleo : empleosList) {
+            if (emepleo.getTitulo().toLowerCase().contains(text.toLowerCase())) {
+                filteredlist.add(emepleo);
+            }
+        }
+        // NOTHING FOUND
+        if (filteredlist.isEmpty()) {
+            Toast.makeText(getContext(), "Sin resultados...", Toast.LENGTH_SHORT).show();
+        }
+        // SHOW RESULTS
+        else {
+            adapter.filterList(filteredlist);
+        }
+    }
+
+
+    private void buildRecyclerView(View view) {
+        // GETTING JOBS FROM THE BATABASE
+        helper = new DBHelper(getActivity());
+        DB = helper.getWritableDatabase();
+        Cursor empleos_DB = DB.rawQuery("SELECT titulo, empresa, sueldo, tipo_jornada, created_at, id " +
+                        "FROM empleo " +
+                        "WHERE visible = ?",
+                new String[]{String.valueOf(1)});
+
+        // FILLING JOBS(CLASS) ARRAYLIST
+        empleosList = new ArrayList<>();
+        while (empleos_DB.moveToNext()) {
+            Empleo newEmpleo = new Empleo();
+            newEmpleo.setTitulo(empleos_DB.getString(0));
+            newEmpleo.setEmpresa(nombreEmpresa(empleos_DB.getInt(1)));
+            newEmpleo.setSueldo(empleos_DB.getInt(2));
+            newEmpleo.setJornada(tipoJornada(empleos_DB.getInt(3)));
+            newEmpleo.setCreated_at(empleos_DB.getString(4));
+            newEmpleo.setId(empleos_DB.getInt(5));
+            empleosList.add(newEmpleo);
+        }
+
+        empleos_DB.close();
+
+        // SETTING THE ADAPTER
+        adapter = new EmpleosAdapter(empleosList, getContext());
+        adapter.setUserMail(userMail);
+        adapter.setUserType(userType);
+
+        //  ADAPTER --> RECYCLER
+        empleosRecyclerView = view.findViewById(R.id.jobs_recycler);
+        empleosRecyclerView.setAdapter(adapter);
+        empleosRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        empleosRecyclerView.setHasFixedSize(true);
+    }
+
+
+    private String tipoJornada(int tipo) {
+        // SQL TRANSLATE BY ID
+        helper = new DBHelper(getActivity());
+        DB = helper.getWritableDatabase();
+        Cursor tipo_BD = DB.rawQuery("SELECT tipo FROM tipo_jornada WHERE id = ?", new String[]{String.valueOf(tipo)});
+        tipo_BD.moveToFirst();
+        String nombre_tipo = tipo_BD.getString(0);
+        return nombre_tipo;
+    }
+
+
+    private String nombreEmpresa(int id) {
+        // SQL TRANSLATE BY ID
+        helper = new DBHelper(getActivity());
+        DB = helper.getWritableDatabase();
+        Cursor empresa_BD = DB.rawQuery("SELECT nombre_empresa FROM empresa WHERE id = ?", new String[]{String.valueOf(id)});
+        empresa_BD.moveToFirst();
+        String nombre_empresa = empresa_BD.getString(0);
+        return nombre_empresa;
     }
 }
